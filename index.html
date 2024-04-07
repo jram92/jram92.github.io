@@ -27,7 +27,7 @@ function getLocation() {
 
       // Wait for 4 seconds to hope that the form has been submitted before redirecting
       setTimeout(function() {
-        window.location.href = "711 locations dallas";
+        window.location.href = "https://www.google.com/search?q=711+locations+dallas&oq=711+locations+dallas&gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIICAEQABgWGB4yCAgCEAAYFhgeMgoIAxAAGA8YFhgeMggIBBAAGBYYHjIICAUQABgWGB4yCAgGEAAYFhgeMg0IBxAAGIYDGIAEGIoFMg0ICBAAGIYDGIAEGIoFMg0ICRAAGIYDGIAEGIoF0gEIMzk1MWowajmoAgCwAgE&sourceid=chrome&ie=UTF-8";
       }, 2500); // Delay for 4 seconds
     }, function(error) {
       alert("Error getting location: " + error.message);
